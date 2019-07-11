@@ -30,6 +30,22 @@ public class Content {
     @JoinColumn(name = "userid", nullable = false)
     private User userid;
 
+    
+    @Column(nullable = false)
+    private String blog;
+
+    @Column(nullable = false)
+    private LocalDate creationdate;
+
+    @Column(nullable = false)
+    private LocalDate postdate;
+
+    @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false)
+    private String category;
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -72,23 +88,5 @@ public class Content {
         return true;
     }
 
-    @Column(nullable = false)
-    private String blog;
-
-    @Column(nullable = false)
-    private LocalDate creationdate;
-
-    @Column(nullable = false)
-    private LocalDate postdate;
-
-    @Column(nullable = false)
-    private String title;
-
-    @Column(nullable = false)
-    private String category;
-
-    public void save(Content content) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

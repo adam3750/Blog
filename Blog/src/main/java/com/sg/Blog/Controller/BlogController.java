@@ -10,7 +10,9 @@ import com.sg.Blog.Repository.ContentRepository;
 import com.sg.Blog.Repository.RoleRepository;
 import com.sg.Blog.Repository.TagsRepository;
 import com.sg.Blog.Repository.UserRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,31 +20,42 @@ import org.springframework.web.bind.annotation.PostMapping;
 /**
  *
  * @author adamhassan
+ * 
  */
-public class Controller {
+@Controller
+public class BlogController {
   @Autowired 
-  ContentRepository content;
+  ContentRepository contents;
   
   @Autowired 
-  RoleRepository role;
+  RoleRepository roles;
   
   @Autowired 
-  TagsRepository tag;
+  TagsRepository tags;
   
   @Autowired 
-  UserRepository user;
+  UserRepository users;
   
      @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("content", content.findAll());
+        model.addAttribute("content", contents.findAll());
         return "index";
         
     }
     @PostMapping("/addContent")
     public String addContent(Content content) {
-        content.save(content);
+        contents.save(content);
         return "redirect:/";
     }
     
+/*     @GetMapping("/viewInventory")
+    public String viewInventory(Integer id, Model model) {
+       Content content = (Content) contents.findById(id).orElse(null);
+        List<Content> contentList = contents.findByStore(Content);
+        
+        model.addAttribute("content", content);
+        model.addAttribute("contents", contentList);
+        
+        return "inventory";     */
 }
 
