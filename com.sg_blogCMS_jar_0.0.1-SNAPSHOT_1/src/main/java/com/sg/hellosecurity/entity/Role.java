@@ -19,7 +19,7 @@ public class Role {
     
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int roleId;
+    private int roleid;
     
     @Column(nullable = false)
     private String role;
@@ -27,13 +27,14 @@ public class Role {
      @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
-    public int getRoleId() {
-        return roleId;
+    public int getRoleid() {
+        return roleid;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setRoleid(int roleid) {
+        this.roleid = roleid;
     }
+
 
     public String getRole() {
         return role;
@@ -55,7 +56,7 @@ public class Role {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 73 * hash + this.roleId;
+        hash = 73 * hash + this.roleid;
         hash = 73 * hash + Objects.hashCode(this.role);
         return hash;
     }
@@ -72,7 +73,7 @@ public class Role {
             return false;
         }
         final Role other = (Role) obj;
-        if (this.roleId != other.roleId) {
+        if (this.roleid != other.roleid) {
             return false;
         }
         if (!Objects.equals(this.role, other.role)) {

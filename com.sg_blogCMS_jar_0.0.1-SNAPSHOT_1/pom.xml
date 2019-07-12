@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sg</groupId>
-	<artifactId>hellosecurity</artifactId>
+	<artifactId>blogCMS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hellosecurity</name>
+	<name>BlogCMS</name>
 	<description>Security Demo project for Spring Boot</description>
 
 	<properties>

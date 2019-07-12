@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class User {
  
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id   
-    private int userId;
+    private int userid;
     
     @Column(nullable = false)
     private String username;
@@ -35,19 +36,21 @@ public class User {
     private boolean enabled;
     
   //  private Set<Role> roles;
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "user_role",
-            joinColumns = {@JoinColumn(name = "userid")},
-            inverseJoinColumns = {@JoinColumn(name = "roleid")})
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private List<Role> roles;
 
-    public int getUserId() {
-        return userId;
+    public int getUserid() {
+        return userid;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
+
+
 
     public String getUsername() {
         return username;
@@ -86,7 +89,7 @@ public class User {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + this.userId;
+        hash = 67 * hash + this.userid;
         hash = 67 * hash + Objects.hashCode(this.username);
         hash = 67 * hash + Objects.hashCode(this.password);
         hash = 67 * hash + (this.enabled ? 1 : 0);
@@ -106,7 +109,7 @@ public class User {
             return false;
         }
         final User other = (User) obj;
-        if (this.userId != other.userId) {
+        if (this.userid != other.userid) {
             return false;
         }
         if (this.enabled != other.enabled) {
