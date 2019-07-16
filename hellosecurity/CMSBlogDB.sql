@@ -1,11 +1,12 @@
 
-drop database if exists securitywithdb;
-create database securitywithdb;
-use securitywithdb;
+drop database if exists CMSBlog;
+create database CMSBlog;
+use CMSBlog;
 
 create table user(
 userid int primary key auto_increment,
 username varchar(30) not null unique,
+displayname varchar(30) not null,
 password varchar(100) not null,
 enabled boolean not null);
 
@@ -43,9 +44,9 @@ primary key(contentid,tagid),
 foreign key (contentid) references content(contentid),
 foreign key (tagid) references tags(tagid));
 
-insert into user(userid,username,password,enabled)
-   values(1,"admin", "$2a$10$mMUe6Z7nq9ANZ/ezjVzZLOk.xbIdSdJ5BznOsmH2Luz.xPB/J43X2", true),
-       (2,"user","$2a$10$mMUe6Z7nq9ANZ/ezjVzZLOk.xbIdSdJ5BznOsmH2Luz.xPB/J43X2",true);
+insert into user(userid,username,displayname,password,enabled)
+   values(1,"admin", "James T. Kirk", "$2a$10$mMUe6Z7nq9ANZ/ezjVzZLOk.xbIdSdJ5BznOsmH2Luz.xPB/J43X2", true),
+       (2,"user", "Scotty", "$2a$10$mMUe6Z7nq9ANZ/ezjVzZLOk.xbIdSdJ5BznOsmH2Luz.xPB/J43X2",true);
 insert into role(roleid,role)
    values(1,"ROLE_ADMIN"), (2,"ROLE_USER");
 insert into user_role(user_id,role_id)

@@ -7,9 +7,12 @@ package com.sg.hellosecurity.controller;
  */
 
 
+import com.sg.hellosecurity.entity.Content;
 import com.sg.hellosecurity.entity.Role;
 import com.sg.hellosecurity.entity.User;
+import com.sg.hellosecurity.repositories.ContentRepository;
 import com.sg.hellosecurity.repositories.RoleRepository;
+import com.sg.hellosecurity.repositories.TagRepository;
 import com.sg.hellosecurity.repositories.UserRepository;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,16 +37,22 @@ public class AdminController {
      @Autowired
     PasswordEncoder encoder;
      
+    @Autowired
+    ContentRepository contents; 
     
+    @Autowired
+    TagRepository tags;
+     
    @GetMapping("/admin")
     public String displayAdminPage(Model model) {
         model.addAttribute("users", users.findAll());
         return "admin";
     }
     @PostMapping("/addUser")
-    public String addUser(String username, String password) {
+    public String addUser(String username, String displayname, String password) {
         User user = new User();
         user.setUsername(username);
+        user.setDisplayname(displayname);
         user.setPassword(encoder.encode(password));
         user.setEnabled(true);
         
@@ -57,6 +66,8 @@ public class AdminController {
     }
      @PostMapping("/deleteUser")
     public String deleteUser(Integer id) {
+        User user = users.findById(id).orElse(null);
+        contents.deleteByUserid(user);
         users.deleteById(id);
         return "redirect:/admin";
     }
@@ -85,11 +96,9 @@ public class AdminController {
             user.setEnabled(false);
         }
         
-   //     Set<Role> roleList = new HashSet<>();
         List<Role> roleList = new ArrayList<>();
         for(String roleId : roleIdList) {
             Role role = roles.findById(Integer.parseInt(roleId)).orElse(null);
-       //      User user = users.findById(id).orElse(null);
             roleList.add(role);
         }
         user.setRoles(roleList);
@@ -107,5 +116,19 @@ public class AdminController {
         } else {
             return "redirect:/editUser?id=" + id + "&error=1";
         }
+    }
+    @GetMapping("/contentDetailAdmin")
+    public String displayContent(Integer id, Model model) {
+        List<Content> contentList = contents.findAll();
+        model.addAttribute("contents", contentList);
+        
+        return "contentDetailAdmin";
+    }
+    @PostMapping("/deleteContent")
+    public String deleteContent(Integer id) {
+    //    Content content = contents.findById(id).orElse(null);
+    //    contents.deleteByUserid(user);
+        contents.deleteById(id);
+        return "redirect:/contentDetailAdmin";
     }
 }

@@ -35,10 +35,10 @@ public class ContentController {
     }
     @GetMapping("/contentDetail")
     public String displayContent(Integer id, Model model) {
-    //    Content content = contents.findById(id).orElse(null);
+   
         List<Content> contentList = contents.findAll();
         
-    //    model.addAttribute("content", content);
+    
         model.addAttribute("contents", contentList);
         
         return "contentDetail";

@@ -15,11 +15,11 @@
            tinymce.init({selector:'#blog'});
         </script>
         
-        <title>Hello Security: Content</title>
+        <title>Blog CMS: Content</title>
     </head>
     <body>
         <div class="container">
-            <h1>Hello Security</h1>
+            <h1>Blog</h1>
             <hr/>
             <div class="navbar">
                 <ul class="nav nav-tabs">
@@ -59,6 +59,7 @@
             </div>
            
         <!--  USER role can see this page -->
+     
          
 <div class="row m-4">
                   
@@ -67,6 +68,7 @@
                         <thead>
                             <tr>
                                 <th>Creator ID</th>
+                                <th>Author</th>
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Creation Date</th>
@@ -77,6 +79,7 @@
                         <tbody>
                             <tr th:each="content : ${contents}">
                                 <td th:text="${content.userid.userid}">ID</td>
+                                <td th:text="${content.userid.displayname}">Author</td>
                                 <td th:text='${content.title}'>Title</td>
                                 <td th:text='${content.category}'>Category</td>
                                 <td th:text='${content.creationdate}'>Creation Date</td>
