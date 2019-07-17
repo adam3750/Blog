@@ -44,8 +44,8 @@ foreign key (`contentid`) references `content`(`contentid`),
 foreign key (`tagid`) references `tags`(`tagid`));
 
 insert into `user`(`id`,`username`,`password`,`enabled`)
-    values(1,"admin", "password", true),
-        (2,"user","password",true);
+    values(1,"admin", "$2a$10$mMUe6Z7nq9ANZ/ezjVzZLOk.xbIdSdJ5BznOsmH2Luz.xPB/J43X2", true),
+        (2,"user","$2a$10$mMUe6Z7nq9ANZ/ezjVzZLOk.xbIdSdJ5BznOsmH2Luz.xPB/J43X2",true);
 
 insert into `role`(`id`,`role`)
     values(1,"ROLE_ADMIN"), (2,"ROLE_USER");
