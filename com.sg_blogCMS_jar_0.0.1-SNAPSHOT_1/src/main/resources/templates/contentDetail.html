@@ -67,7 +67,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Creator ID</th>
+        <!--                       <th>Creator ID</th>      -->
                                 <th>Author</th>
                                 <th>Title</th>
                                 <th>Category</th>
@@ -78,7 +78,7 @@
                         </thead>
                         <tbody>
                             <tr th:each="content : ${contents}">
-                                <td th:text="${content.userid.userid}">ID</td>
+        <!--                        <td th:text="${content.userid.userid}">ID</td>          -->
                                 <td th:text="${content.userid.displayname}">Author</td>
                                 <td th:text='${content.title}'>Title</td>
                                 <td th:text='${content.category}'>Category</td>
@@ -89,6 +89,7 @@
                         </tbody>
                     </table>
                 </div>
+    
             </div>
         </div>
 

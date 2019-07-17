@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sg.hellosecurity.repositories;
+package com.sg.blogCMS.repositories;
 
-import com.sg.hellosecurity.entity.Role;
+import com.sg.blogCMS.entity.Role;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

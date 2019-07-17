@@ -1,4 +1,4 @@
-package com.sg.hellosecurity;
+package com.sg.blogCMS;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HellosecurityApplicationTests {
+public class BlogCMSApplicationTests {
 
 	@Test
 	public void contextLoads() {

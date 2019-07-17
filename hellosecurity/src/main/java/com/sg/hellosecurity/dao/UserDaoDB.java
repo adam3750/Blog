@@ -71,13 +71,13 @@ public class UserDaoDB implements UserDao {
     @Override
     public void updateUser(User user) {
         final String UPDATE_USER = "UPDATE user SET username = ?, password = ?,enabled = ? WHERE id = ?";
-        jdbc.update(UPDATE_USER, user.getUsername(), user.getPassword(), user.isEnabled(), user.getUserId());
+        jdbc.update(UPDATE_USER, user.getUsername(), user.getPassword(), user.isEnabled(), user.getId());
 
         final String DELETE_USER_ROLE = "DELETE FROM user_role WHERE user_id = ?";
-        jdbc.update(DELETE_USER_ROLE, user.getUserId());
+        jdbc.update(DELETE_USER_ROLE, user.getId());
         for (Role role : user.getRoles()) {
             final String INSERT_USER_ROLE = "INSERT INTO user_role(user_id, role_id) VALUES(?,?)";
-            jdbc.update(INSERT_USER_ROLE, user.getUserId(), role.RoleId());
+            jdbc.update(INSERT_USER_ROLE, user.getId(), role.getId());
         }
     }
 
@@ -95,11 +95,11 @@ public class UserDaoDB implements UserDao {
         final String INSERT_USER = "INSERT INTO user(username, password, enabled) VALUES(?,?,?)";
         jdbc.update(INSERT_USER, user.getUsername(), user.getPassword(), user.isEnabled());
         int newId = jdbc.queryForObject("select LAST_INSERT_ID()", Integer.class);
-        user.setUserId(newId);
+        user.setId(newId);
 
         for (Role role : user.getRoles()) {
             final String INSERT_USER_ROLE = "INSERT INTO user_role(user_id, role_id) VALUES(?,?)";
-            jdbc.update(INSERT_USER_ROLE, user.getUserId(), role.getUserId());
+            jdbc.update(INSERT_USER_ROLE, user.getId(), role.getId());
         }
         return user;
     }
@@ -109,7 +109,7 @@ public class UserDaoDB implements UserDao {
         @Override
         public User mapRow(ResultSet rs, int i) throws SQLException {
             User user = new User();
-            user.setUserId(rs.getInt("id"));
+            user.setId(rs.getInt("id"));
             user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEnabled(rs.getBoolean("enabled"));

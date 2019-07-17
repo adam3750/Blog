@@ -1,5 +1,5 @@
 
-package com.sg.hellosecurity.config;
+package com.sg.blogCMS.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

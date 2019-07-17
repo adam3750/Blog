@@ -1,8 +1,8 @@
 
-package com.sg.hellosecurity.repositories;
+package com.sg.blogCMS.repositories;
 
-import com.sg.hellosecurity.entity.Content;
-import com.sg.hellosecurity.entity.User;
+import com.sg.blogCMS.entity.Content;
+import com.sg.blogCMS.entity.User;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

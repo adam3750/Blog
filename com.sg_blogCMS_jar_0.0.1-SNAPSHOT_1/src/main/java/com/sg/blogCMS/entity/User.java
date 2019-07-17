@@ -1,5 +1,5 @@
 
-package com.sg.hellosecurity.entity;
+package com.sg.blogCMS.entity;
 
 import java.util.List;
 import java.util.Objects;

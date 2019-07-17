@@ -1,5 +1,5 @@
 
-package com.sg.hellosecurity.config;
+package com.sg.blogCMS.config;
 
 /**
  *
