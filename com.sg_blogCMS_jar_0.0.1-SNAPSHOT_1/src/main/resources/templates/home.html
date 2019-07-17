@@ -7,61 +7,113 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="style.css">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <title>Hello Security: Home</title>
     </head>
+    
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand order-1" href="#">Created by Harun, Steve, and Adam</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/content">Login</a>
+        <a class="nav-item nav-link" href="/admin">Admin</a>
+      </div>
+    </div>
+    </nav>
+    
     <body>
-        <div class="container">
-            <h1>Hello Security</h1>
-            <hr/>
-            <div class="navbar">
-                <ul class="nav nav-tabs">
-                    <li role="presentation" class="nav-item">
-                        <a class="nav-link active" href="home">
-                            Home
-                        </a>
-                    </li>
-                    <li role="presentation" class="nav-item">
-                        <a class="nav-link" href="content">
-                            Content (must have the user role)
-                        </a>
-                    </li>
-                    <li role="presentation" class="nav-item">
-                        <a class="nav-link" href="admin">
-                            Admin (must have the admin role)
-                        </a>
-                    </li>
-                </ul>    
-            </div>
-            <h2>Home Page</h2>
-            <div sec:authorize="isAuthenticated()">
-                <form class="form-inline" 
-                      method="POST" 
-                      action="/logout">
-                    <input type="hidden" 
-                            th:name="${_csrf.parameterName}" 
-                            th:value="${_csrf.token}"/>
-                    <label for="submit">
-                      Hello : <span th:text="${#authentication.name}">
-                              </span>&nbsp;&nbsp;&nbsp;|
-                    </label>
-                    <button class="btn btn-link" 
-                          id="submit" 
-                          type="submit">Logout</button>
-                </form>
-            </div>
-            <p>
-                The landing page of our application - anyone can get here, including anonymous users.
-            </p>
-            <div sec:authorize="isAuthenticated()">
-                <p>
-                    This is only visible to users who are logged in.
-                </p>
-            </div>
+        
+    <div class="container text-center">
+
+      <h1 class="display-1 mt-5">Welcome To Our Blog</h1>
+      <p class="lead mb-5">Dive right in to interesting content</p>
+    
+
+      <div class="row">
+        <div class="col-6">
+          <h3 class="mb-5">Categories</h3>
+          
+          
         </div>
+        <div class="col-6">
+
+          <div class="form-group row">
+            <label for="name" class="col-3 col-form-label">
+                Author</label>
+            <div class="col-9">
+              <input type="text" name="name"
+             id="name" class="form-control"/>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-3 col-form-label">
+                title</label>
+            <div class="col-9">
+              <input type="text" name="name"
+             id="name" class="form-control"/>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-3 col-form-label">
+                Date</label>
+            <div class="col-9">
+              <input type="text" name="name"
+             id="name" class="form-control"/>
+            </div>
+          </div>
+
+          <br>
+          
+
+          <p>The running back is entering the fifth-year option of his rookie deal at
+             $5.6 million. Gordon has been an asset to fantasy teams, scoring 38 touchdowns over the past three seasons.
+              After fumbling six times on 217 touches as a rookie, he has responded by fumbling just four times on 862
+              touches over the ensuing three campaigns. His ability with the football makes him a three-down back,
+               and he had his best season as a runner in 2018.</p>
+
+          <p>All of those things are true, but the Chargers have to give serious thought to letting Gordon leave after the 2019 season. For one, there are concerns about paying any veteran running back significant money after his rookie deal. Gordon doesn't have as many carries as other backs after their first four seasons, but that's because he already has struggled to stay healthy; he has completed just one 16-game season and missed nine games in four campaigns. Gordon has suffered knee injuries in three different years in addition to a 2016 hip sprain and a 2018 hamstring issue.
+
+His on-field play hasn't been quite as impressive as those fantasy totals, either. Gordon's 28 rushing touchdowns have been the product of sheer volume near the goal line. He has 39 carries inside the 5-yard line in the past three seasons. Backs score on 41.8 percent of those carries, which would suggest Gordon should have scored 16.3 touchdowns on those rushes. He actually scored 18, which amounts to about one extra touchdown every two seasons, and that's without including his zero-touchdown season in 2015</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <br><br>
+      <br><br>
+
+        <footer>
+          <h2 class="mb-5">Disclaimer</h2>
+          <p>These are my own personal thoughts, beliefs, and persepectives of the world. This is not representative of any<br>
+          employers, planning committees, clients, or any other associations tied with me or my name. Every person has <br>
+          an opinion on something, and these are mine. We may end up having to agree to disagree, and I can guarantee <br>
+          you that not every one will feel the way that I do.</p>
+
+          <br><br>
+
+          <p>I may post happy things or sad things, run-of-the-mill things or controversial things. Whatever I post is most likely <br>
+            posted straight out of the mind, as I write stream-of-conscious style.</p>
+
+          <br><br>
+
+          <p>If you have any questions for me personally, please feel free to email me at my first name at this domain.</p>
+
+          <br><br>
+
+                  <p> - Sarah "sadukie" Dutkiewicz</p>
+
+        </footer>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
