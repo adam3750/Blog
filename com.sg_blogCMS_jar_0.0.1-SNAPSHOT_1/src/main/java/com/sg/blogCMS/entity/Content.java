@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sg.hellosecurity.entity;
+package com.sg.blogCMS.entity;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +18,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 /**
@@ -31,9 +35,12 @@ public class Content {
     private int contentid;
 
     @Column(nullable = false)
-    private LocalDate creationdate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+     private LocalDate creationdate;
+   
 
     @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate postdate;
 
     @Column(nullable = false)

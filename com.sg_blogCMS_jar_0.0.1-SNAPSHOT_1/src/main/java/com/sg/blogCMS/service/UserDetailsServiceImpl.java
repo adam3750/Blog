@@ -1,9 +1,9 @@
 
-package com.sg.hellosecurity.service;
+package com.sg.blogCMS.service;
 
-import com.sg.hellosecurity.entity.Role;
-import com.sg.hellosecurity.entity.User;
-import com.sg.hellosecurity.repositories.UserRepository;
+import com.sg.blogCMS.entity.Role;
+import com.sg.blogCMS.entity.User;
+import com.sg.blogCMS.repositories.UserRepository;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;

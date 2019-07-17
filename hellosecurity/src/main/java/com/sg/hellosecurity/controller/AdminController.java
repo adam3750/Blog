@@ -45,7 +45,7 @@ public class AdminController {
         user.setPassword(encoder.encode(password));
         user.setEnabled(true);
         
-        List<Role> userRoles = new ArrayList<>();
+        Set<Role> userRoles = new HashSet<>();
         userRoles.add(roles.getRoleByRole("ROLE_USER"));
         user.setRoles(userRoles);
         
@@ -74,7 +74,7 @@ public class AdminController {
         
         return "editUser";
     }
-    @PostMapping(value="/editUser")
+     @PostMapping(value="/editUser")
     public String editUserAction(String[] roleIdList, Boolean enabled, Integer id) {
         User user = users.getUserById(id);
         if(enabled != null) {
@@ -83,8 +83,7 @@ public class AdminController {
             user.setEnabled(false);
         }
         
-   //     Set<Role> roleList = new HashSet<>();
-        List<Role> roleList = new ArrayList<>();
+        Set<Role> roleList = new HashSet<>();
         for(String roleId : roleIdList) {
             Role role = roles.getRoleById(Integer.parseInt(roleId));
             roleList.add(role);

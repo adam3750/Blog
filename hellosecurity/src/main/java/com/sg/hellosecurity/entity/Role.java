@@ -1,38 +1,18 @@
 
 package com.sg.hellosecurity.entity;
 
-import java.util.List;
 import java.util.Objects;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
-/**
- *
- * @adamhassan
- */
-@Entity
 public class Role {
-    
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    private int roleId;
-    
-    @Column(nullable = false)
+    private int id;
     private String role;
-    
-     @ManyToMany(mappedBy = "roles")
-    private List<User> users;
 
-    public int getRoleId() {
-        return roleId;
+    public int getId() {
+        return id;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRole() {
@@ -43,20 +23,11 @@ public class Role {
         this.role = role;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + this.roleId;
-        hash = 73 * hash + Objects.hashCode(this.role);
+        int hash = 3;
+        hash = 97 * hash + this.id;
+        hash = 97 * hash + Objects.hashCode(this.role);
         return hash;
     }
 
@@ -72,7 +43,7 @@ public class Role {
             return false;
         }
         final Role other = (Role) obj;
-        if (this.roleId != other.roleId) {
+        if (this.id != other.id) {
             return false;
         }
         if (!Objects.equals(this.role, other.role)) {
@@ -80,6 +51,4 @@ public class Role {
         }
         return true;
     }
-
-    
-}    
+}

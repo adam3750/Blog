@@ -1,5 +1,5 @@
 
-package com.sg.hellosecurity.controller;
+package com.sg.blogCMS.controller;
 
 /**
  *

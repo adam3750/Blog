@@ -1,7 +1,7 @@
 
-package com.sg.hellosecurity.repositories;
+package com.sg.blogCMS.repositories;
 
-import com.sg.hellosecurity.entity.Tag;
+import com.sg.blogCMS.entity.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
