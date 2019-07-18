@@ -26,21 +26,14 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  * @author adamhassan
  */
-@Entity
+@Entity(name="content")
 public class Content {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int contentid;
 
-    @Column(nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-     private LocalDate creationdate;
    
-
-    @Column(nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate postdate;
 
     @Column(nullable = false)
     @NotBlank(message = "Title must not be blank")
@@ -51,6 +44,18 @@ public class Content {
     @Size(max = 60, message="Category must be fewer than 60 characters")
     @Column(nullable = false)
     private String category;
+    
+     @Column(nullable = false)
+    private String contentblog;
+     
+     @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+     private LocalDate creationdate;
+   
+
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate postdate;
     
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
@@ -118,16 +123,25 @@ public class Content {
         this.tags = tags;
     }
 
+    public String getContentblog() {
+        return contentblog;
+    }
+
+    public void setContentblog(String contentblog) {
+        this.contentblog = contentblog;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + this.contentid;
-        hash = 37 * hash + Objects.hashCode(this.creationdate);
-        hash = 37 * hash + Objects.hashCode(this.postdate);
-        hash = 37 * hash + Objects.hashCode(this.title);
-        hash = 37 * hash + Objects.hashCode(this.category);
-        hash = 37 * hash + Objects.hashCode(this.userid);
-        hash = 37 * hash + Objects.hashCode(this.tags);
+        int hash = 7;
+        hash = 79 * hash + this.contentid;
+        hash = 79 * hash + Objects.hashCode(this.title);
+        hash = 79 * hash + Objects.hashCode(this.category);
+        hash = 79 * hash + Objects.hashCode(this.contentblog);
+        hash = 79 * hash + Objects.hashCode(this.creationdate);
+        hash = 79 * hash + Objects.hashCode(this.postdate);
+        hash = 79 * hash + Objects.hashCode(this.userid);
+        hash = 79 * hash + Objects.hashCode(this.tags);
         return hash;
     }
 
@@ -152,6 +166,9 @@ public class Content {
         if (!Objects.equals(this.category, other.category)) {
             return false;
         }
+        if (!Objects.equals(this.contentblog, other.contentblog)) {
+            return false;
+        }
         if (!Objects.equals(this.creationdate, other.creationdate)) {
             return false;
         }
@@ -167,5 +184,4 @@ public class Content {
         return true;
     }
 
-    
-}
+}   

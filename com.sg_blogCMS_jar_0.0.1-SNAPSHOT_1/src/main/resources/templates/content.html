@@ -13,7 +13,11 @@
         <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
 
         <script>
+<<<<<<< HEAD
              tinymce.init({selector:'#content'});
+=======
+           tinymce.init({selector:'textarea'});
+>>>>>>> 8221b30568b1efe7a0d9ac72a8bb71fd0ce799bc
         </script>
         
         <title>Hello Security: Content</title>
@@ -117,7 +121,7 @@
                           <input class="col-8 form-control" type="date" id="postdate" name="postdate"/>
                       </div>
                                 -->
-                       <textarea id="blog"></textarea>      
+                       <textarea id="contentblog" name="contentblog"></textarea>      
                        <input type="hidden" 
                             th:name="${_csrf.parameterName}" 
                             th:value="${_csrf.token}"/>

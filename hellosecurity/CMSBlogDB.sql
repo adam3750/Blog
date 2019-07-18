@@ -28,6 +28,7 @@ title varchar(40) not null,
 category varchar(60) not null,
 creationdate date,
 postdate date,
+contentblog text not null,
 showpost boolean default false,
 foreign key (userid) references user(userid));
 

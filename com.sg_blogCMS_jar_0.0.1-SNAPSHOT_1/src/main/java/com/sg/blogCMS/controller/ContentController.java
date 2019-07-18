@@ -13,6 +13,7 @@ import com.sg.blogCMS.repositories.TagRepository;
 import com.sg.blogCMS.repositories.UserRepository;
 import java.security.Principal;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -50,11 +51,8 @@ public class ContentController {
     }
     
     @PostMapping("/addContent")
-    public String addContent(@Valid Content content, BindingResult result) {
-        if(result.hasErrors()) {
-            return "redirect:/content";
-        }
-        
+    public String addContent(Content content, HttpServletRequest request) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUserName = authentication.getName();
         User user = users.findByUsername(currentUserName);

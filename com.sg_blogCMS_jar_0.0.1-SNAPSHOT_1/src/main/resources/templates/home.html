@@ -49,8 +49,24 @@
           <h3 class="mb-5">Posts</h3>
           
           <ul th:each="content : ${contents}">
+<<<<<<< HEAD
               <li <a th:href="@{'/content' + ${content.title}}">view this post</li>
                 <a th:href="@{'/content' + (id=${content.id})}">view</a>
+=======
+<!--              <li <a th:href="@{'/content' + ${content.title}}">view this post</li>
+                <a th:href="@{'/content' + ${content.title}}">view</a> -->
+               
+                <td th:text='${content.category}'>Category</td>
+                <br>
+                 <td th:text='${content.title}'>Title</td>
+                 <br>
+                 <td th:utext='${content.contentblog}'>Content</td>
+                 
+                 <!-- <a th:href="@{'/details' + (id=${content.contentid})}">view</a>-->
+                 
+                 <a href="#" th:href="@{/details(id=${content.contentid})}">Details</a>
+                 
+>>>>>>> 8221b30568b1efe7a0d9ac72a8bb71fd0ce799bc
           </ul>
           
      

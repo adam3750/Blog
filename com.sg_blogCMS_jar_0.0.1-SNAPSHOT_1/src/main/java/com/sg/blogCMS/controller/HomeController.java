@@ -30,4 +30,16 @@ public class HomeController {
         
         return "home";
     }
+
+    
+    
+    @GetMapping({"/details"})
+    public String displaydetailsPage(Integer id, Model model) {
+        
+        Content content = contents.findById(id).orElse(null);
+        
+        model.addAttribute("content", content);
+        
+        return "details";
+    }
 }
