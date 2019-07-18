@@ -45,29 +45,19 @@
       <div class="row">
         <div class="col-6">
 
-            
-          <h3 class="mb-5">Posts</h3>
-          
-         
-
-
 
           <h3 class="mb-5">Posts</h3>
           
           <ul th:each="content : ${contents}">
               <li <a th:href="@{'/content' + ${content.title}}">view this post</li>
-                <a th:href="@{'/content' + ${content.title}}">view</a>
+                <a th:href="@{'/content' + (id=${content.id})}">view</a>
           </ul>
           
-         
-          
-         
+     
         </div>
         <div class="col-6">
 
 
-
-         
          <br>
          
         <h3 class="mb-5"> Is Melvin Gordon a Max Player?</h3>
@@ -76,9 +66,6 @@
           <br>
 
 
-         
-        
-          
           <br>
               <h3 class="mb-5"> Is Melvin Gordon a Max Player?</h3>
           
@@ -100,17 +87,10 @@ His on-field play hasn't been quite as impressive as those fantasy totals, eithe
 
       <br><br>
       <br><br>
-
-
-        </div>
-
-      </div>
-      <hr>
-      <br><br>
-      <br><br>
-
-        <footer>
-          <h2 class="mb-5">Disclaimer</h2>
+              
+              
+                     <footer class="text-center">
+          <h2 class="mb-5 text-center">Disclaimer</h2>
           <p>These are my own personal thoughts, beliefs, and persepectives of the world. This is not representative of any<br>
           employers, planning committees, clients, or any other associations tied with me or my name. Every person has <br>
           an opinion on something, and these are mine. We may end up having to agree to disagree, and I can guarantee <br>
@@ -132,6 +112,15 @@ His on-field play hasn't been quite as impressive as those fantasy totals, eithe
 
         </footer>
 
+
+
+        </div>
+
+ 
+    
+     
+
+       
 
 
 
