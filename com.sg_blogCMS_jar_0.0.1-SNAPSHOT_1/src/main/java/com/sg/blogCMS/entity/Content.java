@@ -5,7 +5,6 @@
  */
 package com.sg.blogCMS.entity;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -18,8 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -44,8 +43,12 @@ public class Content {
     private LocalDate postdate;
 
     @Column(nullable = false)
+    @NotBlank(message = "Title must not be blank")
+    @Size(max = 40, message="Title must be fewer than 40 characters")
     private String title;
 
+    @NotBlank(message = "Category must not be blank")
+    @Size(max = 60, message="Category must be fewer than 60 characters")
     @Column(nullable = false)
     private String category;
     

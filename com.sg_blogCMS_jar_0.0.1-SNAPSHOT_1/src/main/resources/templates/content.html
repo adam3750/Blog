@@ -77,10 +77,18 @@
                       <div class="form-inline">
                           <label class="col-4" for="title">Title</label>
                           <input class="col-8 form-control" type="text" id="title" name="title"/>
+     <!--                     <div th:if="${#fields.hasErrors('content.title')}">
+      <p th:each="error : ${#fields.errors('content.title')}" class="alert alert-danger"
+        th:text="${error}"> Title input issue </p>
+    </div>      -->
                       </div>
                       <div class="form-inline">
                           <label class="col-4" for="category">Category</label>
                           <input class="col-8 form-control" type="text" id="category" name="category"/>
+    <!--                       <div th:if="${#fields.hasErrors('content.category')}">
+      <p th:each="error : ${#fields.errors('content.category')}" class="alert alert-danger"
+        th:text="${error}"> Category input issue </p>
+    </div>      -->
                       </div>
                       <div class="form-inline">
                           <label class="col-4" for="creationdate">Creation Date</label>
