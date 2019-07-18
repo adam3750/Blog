@@ -73,6 +73,7 @@
                                 <th>Category</th>
                                 <th>Creation Date</th>
                                 <th>Post Date</th>
+                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -84,6 +85,7 @@
                                 <td th:text='${content.category}'>Category</td>
                                 <td th:text='${content.creationdate}'>Creation Date</td>
                                 <td th:text='${content.postdate}'>Post Date</td>
+                                <td><a href="#" th:href="@{/editContent(id=${content.contentid})}">Edit</a></td>
                                  <td>
                                 <form class="form-inline" 
                                         method="POST" 

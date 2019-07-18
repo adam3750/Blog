@@ -14,6 +14,7 @@ import com.sg.blogCMS.repositories.ContentRepository;
 import com.sg.blogCMS.repositories.RoleRepository;
 import com.sg.blogCMS.repositories.TagRepository;
 import com.sg.blogCMS.repositories.UserRepository;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -130,5 +131,20 @@ public class AdminController {
     //    contents.deleteByUserid(user);
         contents.deleteById(id);
         return "redirect:/contentDetailAdmin";
+    }
+   @GetMapping("/editContent")
+    public String editContentDisplay(Model model, Integer id, Integer error) {
+        Content content = contents.findById(id).orElse(null);
+         
+        model.addAttribute("content", content);
+        
+        return "editContent";
+    }           
+    @PostMapping(value="/editContent")
+    public String editContentAction(Content content) {
+      
+        contents.save(content);
+        
+        return "redirect:/admin";
     }
 }
