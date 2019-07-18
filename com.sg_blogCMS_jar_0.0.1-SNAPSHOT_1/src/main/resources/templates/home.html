@@ -35,36 +35,24 @@
     
       <div class="row">
         <div class="col-6">
-          <h3 class="mb-5">Categories</h3>
+
+          <h3 class="mb-5">Posts</h3>
           
+          <ul th:each="content : ${contents}">
+              <li <a th:href="@{'/content' + ${content.title}}">view this post</li>
+                <a th:href="@{'/content' + ${content.title}}">view</a>
+          </ul>
           
+         
+          
+         
         </div>
         <div class="col-6">
-          <div class="form-group row">
-            <label for="name" class="col-3 col-form-label">
-                Author</label>
-            <div class="col-9">
-              <input type="text" name="name"
-             id="name" class="form-control"/>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="name" class="col-3 col-form-label">
-                title</label>
-            <div class="col-9">
-              <input type="text" name="name"
-             id="name" class="form-control"/>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="name" class="col-3 col-form-label">
-                Date</label>
-            <div class="col-9">
-              <input type="text" name="name"
-             id="name" class="form-control"/>
-            </div>
-          </div>
+         
+        
+          
           <br>
+              <h3 class="mb-5"> Is Melvin Gordon a Max Player?</h3>
           
           <p>The running back is entering the fifth-year option of his rookie deal at
              $5.6 million. Gordon has been an asset to fantasy teams, scoring 38 touchdowns over the past three seasons.
@@ -74,6 +62,7 @@
           <p>All of those things are true, but the Chargers have to give serious thought to letting Gordon leave after the 2019 season. For one, there are concerns about paying any veteran running back significant money after his rookie deal. Gordon doesn't have as many carries as other backs after their first four seasons, but that's because he already has struggled to stay healthy; he has completed just one 16-game season and missed nine games in four campaigns. Gordon has suffered knee injuries in three different years in addition to a 2016 hip sprain and a 2018 hamstring issue.
 His on-field play hasn't been quite as impressive as those fantasy totals, either. Gordon's 28 rushing touchdowns have been the product of sheer volume near the goal line. He has 39 carries inside the 5-yard line in the past three seasons. Backs score on 41.8 percent of those carries, which would suggest Gordon should have scored 16.3 touchdowns on those rushes. He actually scored 18, which amounts to about one extra touchdown every two seasons, and that's without including his zero-touchdown season in 2015</p>
         </div>
+
       </div>
       <hr>
       <br><br>
@@ -92,7 +81,11 @@ His on-field play hasn't been quite as impressive as those fantasy totals, eithe
           <br><br>
                   <p> - Sarah "sadukie" Dutkiewicz</p>
         </footer>
+
+
+
 ​
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
