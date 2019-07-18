@@ -30,14 +30,16 @@
                     </li>
                     <li role="presentation" class="nav-item">
                         <a class="nav-link active" href="content">
-                            Content (must have the user role)
+                            Content (must have login access)
                         </a>
                     </li>
+                     <div sec:authorize="hasRole('ROLE_ADMIN')">
                     <li role="presentation" class="nav-item">
                         <a class="nav-link" href="admin">
-                            Admin (must have the admin role)
+                            Admin (must have the admin access)
                         </a>
                     </li>
+                     </div>
                 </ul>    
             </div>
             <h2>Content Page</h2>

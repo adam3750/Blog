@@ -32,13 +32,13 @@
                     </li>
                     <li role="presentation" class="nav-item">
                         <a class="nav-link active" href="content">
-                            Content (must have the user role)
+                            Content (must have login access)
                         </a>
                     </li>
                      <div sec:authorize="hasRole('ROLE_ADMIN')">
                     <li role="presentation" class="nav-item">
                         <a class="nav-link" href="admin">
-                            Admin (must have the admin role)
+                            Admin (must have the admin access)
                         </a>
                     </li>
                      </div>
@@ -53,8 +53,14 @@
                             th:name="${_csrf.parameterName}" 
                             th:value="${_csrf.token}"/>
                     <label for="submit">
+<<<<<<< HEAD
                       Hello : <span th:text="${#authentication.name}">
                               </span>&nbsp;&nbsp;&nbsp; 
+=======
+        <!--              Hello : <span th:text="${#authentication.name}">      -->
+                          <span th:text="${#authentication.name}">
+                              </span>&nbsp;&nbsp;&nbsp;|
+>>>>>>> 6959828528fc5cdf3f4d1f0fd2221ab8e5fd2de1
                     </label>
                     <button class="btn btn-link" 
                           id="submit" 
