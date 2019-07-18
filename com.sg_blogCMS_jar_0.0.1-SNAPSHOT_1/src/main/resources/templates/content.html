@@ -15,11 +15,11 @@
            tinymce.init({selector:'#blog'});
         </script>
         
-        <title>Hello Security: Content</title>
+        <title>Blog CMS: Content</title>
     </head>
     <body>
         <div class="container">
-            <h1>Hello Security</h1>
+            <h1>Blog</h1>
             <hr/>
             <div class="navbar">
                 <ul class="nav nav-tabs">
@@ -33,11 +33,13 @@
                             Content (must have the user role)
                         </a>
                     </li>
+                     <div sec:authorize="hasRole('ROLE_ADMIN')">
                     <li role="presentation" class="nav-item">
                         <a class="nav-link" href="admin">
                             Admin (must have the admin role)
                         </a>
                     </li>
+                     </div>
                 </ul>    
             </div>
             <h2>Content Page</h2>

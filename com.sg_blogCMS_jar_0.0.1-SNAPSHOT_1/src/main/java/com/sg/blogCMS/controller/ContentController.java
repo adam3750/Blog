@@ -1,15 +1,15 @@
 
-package com.sg.hellosecurity.controller;
+package com.sg.blogCMS.controller;
 
 /**
  *
  * @author SMD3
  */
     
-import com.sg.hellosecurity.entity.Content;
-import com.sg.hellosecurity.repositories.ContentRepository;
-import com.sg.hellosecurity.repositories.TagRepository;
-import com.sg.hellosecurity.repositories.UserRepository;
+import com.sg.blogCMS.entity.Content;
+import com.sg.blogCMS.repositories.ContentRepository;
+import com.sg.blogCMS.repositories.TagRepository;
+import com.sg.blogCMS.repositories.UserRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,10 +35,10 @@ public class ContentController {
     }
     @GetMapping("/contentDetail")
     public String displayContent(Integer id, Model model) {
-    //    Content content = contents.findById(id).orElse(null);
+   
         List<Content> contentList = contents.findAll();
         
-    //    model.addAttribute("content", content);
+    
         model.addAttribute("contents", contentList);
         
         return "contentDetail";

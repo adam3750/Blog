@@ -1,5 +1,5 @@
 
-package com.sg.hellosecurity.entity;
+package com.sg.blogCMS.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,6 +28,9 @@ public class User {
     
     @Column(nullable = false)
     private String username;
+    
+    @Column(nullable = false)
+    private String displayname;
     
     @Column(nullable = false)
     private String password;
@@ -84,13 +87,20 @@ public class User {
         this.roles = roles;
     }
 
- 
+    public String getDisplayname() {
+        return displayname;
+    }
+
+    public void setDisplayname(String displayname) {
+        this.displayname = displayname;
+    }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 67 * hash + this.userid;
         hash = 67 * hash + Objects.hashCode(this.username);
+        hash = 67 * hash + Objects.hashCode(this.displayname);
         hash = 67 * hash + Objects.hashCode(this.password);
         hash = 67 * hash + (this.enabled ? 1 : 0);
         hash = 67 * hash + Objects.hashCode(this.roles);
@@ -118,6 +128,9 @@ public class User {
         if (!Objects.equals(this.username, other.username)) {
             return false;
         }
+        if (!Objects.equals(this.displayname, other.displayname)) {
+            return false;
+        }
         if (!Objects.equals(this.password, other.password)) {
             return false;
         }
@@ -127,5 +140,8 @@ public class User {
         return true;
     }
 
+    
+
+   
    
 }

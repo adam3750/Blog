@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sg.hellosecurity.repositories;
+package com.sg.blogCMS.repositories;
 
-import com.sg.hellosecurity.entity.User;
+import com.sg.blogCMS.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserRepository extends JpaRepository <User, Integer> {
-    
+
+    User findByUsername(String username);
 }

@@ -59,7 +59,7 @@ public class RoleDaoDB implements RoleDao {
     @Override
     public void updateRole(Role role) {
         final String UPDATE_ROLE = "UPDATE role SET role = ? WHERE id = ?";
-        jdbc.update(UPDATE_ROLE, role.getRole(), role.getRoleId());
+        jdbc.update(UPDATE_ROLE, role.getRole(), role.getId());
     }
 
     @Override
@@ -68,7 +68,7 @@ public class RoleDaoDB implements RoleDao {
         final String INSERT_ROLE = "INSERT INTO role(role) VALUES(?)";
         jdbc.update(INSERT_ROLE, role.getRole());
         int newId = jdbc.queryForObject("select LAST_INSERT_ID()", Integer.class);
-        role.setRoleId(newId);
+        role.setId(newId);
         return role;
     }
     
@@ -77,7 +77,7 @@ public class RoleDaoDB implements RoleDao {
         @Override
         public Role mapRow(ResultSet rs, int i) throws SQLException {
             Role role = new Role();
-            role.setRoleId(rs.getInt("id"));
+            role.setId(rs.getInt("id"));
             role.setRole(rs.getString("role"));
             return role;
         }
