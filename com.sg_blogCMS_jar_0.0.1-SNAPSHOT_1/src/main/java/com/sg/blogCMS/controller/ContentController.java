@@ -13,16 +13,16 @@ import com.sg.blogCMS.repositories.TagRepository;
 import com.sg.blogCMS.repositories.UserRepository;
 import java.security.Principal;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
 public class ContentController {
@@ -44,15 +44,16 @@ public class ContentController {
     public String displayContent(Integer id, Model model) {
    
         List<Content> contentList = contents.findAll();
-        
-    
         model.addAttribute("contents", contentList);
         
         return "contentDetail";
     }
     
     @PostMapping("/addContent")
-    public String addContent(Content content) {
+    public String addContent(@Valid Content content, BindingResult result) {
+        if(result.hasErrors()) {
+            return "redirect:/content";
+        }
         
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUserName = authentication.getName();
