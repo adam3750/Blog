@@ -26,8 +26,8 @@ contentid int primary key auto_increment,
 userid int not null,
 title varchar(40) not null,
 category varchar(60) not null,
-creationdate date not null,
-postdate date not null,
+creationdate date,
+postdate date,
 showpost boolean default false,
 foreign key (userid) references user(userid));
 

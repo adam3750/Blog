@@ -7,15 +7,22 @@ package com.sg.blogCMS.controller;
  */
     
 import com.sg.blogCMS.entity.Content;
+import com.sg.blogCMS.entity.User;
 import com.sg.blogCMS.repositories.ContentRepository;
 import com.sg.blogCMS.repositories.TagRepository;
 import com.sg.blogCMS.repositories.UserRepository;
+import java.security.Principal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ContentController {
@@ -46,6 +53,11 @@ public class ContentController {
     
     @PostMapping("/addContent")
     public String addContent(Content content) {
+        
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User user = users.findByUsername(currentUserName);
+        content.setUserid(user);
         contents.save(content);
         return "redirect:/content";
     }
